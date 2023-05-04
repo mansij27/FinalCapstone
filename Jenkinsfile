@@ -14,6 +14,16 @@ pipeline{
                 }
             }
         }
+        stage('Docker Login'){
+            steps{
+                sh 'echo $DOCKERHUB_CREDENTIASL_PSW | docker login -u $DOCKERHUB_CREDENTIASL_USR --password-stdin'
+            }
+        }
+        stage('Pushing image'){
+            steps{
+                sh 'docker push mjmansi/my-docker:latest'
+            }
+        }
         stage ("Development"){
             steps {
                 echo "Development finished successfully"
@@ -28,6 +38,11 @@ pipeline{
             steps {
                 echo "Production finished successfully.."
             }
+        }
+    }
+    post{
+        always{
+            sh 'docker logout'
         }
     }
 
