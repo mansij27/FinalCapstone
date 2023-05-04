@@ -4,6 +4,13 @@ pipeline{
     //     image 'myregistry.com/node'
     // }
     stages{
+        stage('Docker build'){
+            steps{
+                script{
+                    sh 'docker build -t mjmansi27/my-docker .'
+                }
+            }
+        }
         stage ("Development"){
             steps {
                 echo "Development finished successfully"
