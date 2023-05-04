@@ -10,7 +10,7 @@ pipeline{
         stage('Docker build'){
             steps{
                 script{
-                    sh 'docker build -t mjmansi27/my-docker . '
+                    sh 'docker build . -t mjmansi27/my-docker:$BUILD_NUMBER'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline{
         }
         stage('Pushing image'){
             steps{
-                sh 'docker push mjmansi27/my-docker:latest'
+                sh 'docker push mjmansi27/my-docker:$BUILD_NUMBER'
             }
         }
         stage ("Development"){
