@@ -18,7 +18,7 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
-                    sh 'docker login -u mjmansi27 -p ${dockerhub-pwd}'
+                    sh 'docker login -u mjmansi27 -p $dockerhub-pwd'
                     }
                 }
                 // sh 'echo $DOCKERHUB_CREDENTIASL_PSW | docker login -u $DOCKERHUB_CREDENTIASL_USR --password-stdin'
