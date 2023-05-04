@@ -26,7 +26,7 @@ pipeline{
         }
         stage('Pushing image'){
             steps{
-                sh 'docker push mjmansi/my-docker:latest'
+                sh 'docker push mjmansi27/my-docker:latest'
             }
         }
         stage ("Development"){
