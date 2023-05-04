@@ -23,7 +23,7 @@ pipeline{
         }
         stage ("Production"){
             steps {
-                echo "Production finished"
+                echo "Production finished successfully"
             }
         }
     }
