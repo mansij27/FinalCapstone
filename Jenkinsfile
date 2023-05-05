@@ -34,6 +34,8 @@ pipeline{
                 script{
                     withCredentials([string(credentialsId: 'k8s-config', variable: 'k8s-config-pwd')]) {
 //                         sh 'minikube start'
+//                            sh 'minikube start'
+                        
                         sh 'kubectl --kubeconfig=$k8s-config-pwd apply -f deployservice.yml'
                     }
                 }
