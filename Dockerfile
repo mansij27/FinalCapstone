@@ -8,6 +8,8 @@ ADD . /app
 
 COPY ./requirements.txt /app/requirements.txt
 
+COPY . .
+
 # FROM build as stage
 
 RUN pip install -r requirements.txt
