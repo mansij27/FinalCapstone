@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: final-deploy-container
-          image: mjmansi27/my-docker:22
+          image: mjmansi27/my-docker:23
           ports:
             - containerPort: 8000
 ---
