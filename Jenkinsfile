@@ -32,7 +32,7 @@ pipeline{
         stage('Deploy to k8s'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'k8s-cf-new', variable: 'k8spwd')]) {         
+                    withCredentials([file(credentialsId: 'k8s-cf-new', variable: 'k8spwd')]) {         
                         sh 'kubectl --kubeconfig=$k8spwd apply -f deployservice.yml'
                     }
                 }
