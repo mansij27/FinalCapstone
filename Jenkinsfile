@@ -29,19 +29,14 @@ pipeline{
                 sh 'docker push mjmansi27/my-docker:$BUILD_NUMBER'
             }
         }
-        stage ("Development"){
-            steps {
-                echo "Development finished successfully"
-            }
-        }
-        stage ("Testing "){
-            steps {
-                echo "Testing finished successfully"
-            }
-        }
-        stage ("Production"){
-            steps {
-                echo "Production finished successfully.."
+        stage('Deploy to k8s'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'k8s-config', variable: 'k8s-config_pwd')]) {
+                        sh 'minikube start'
+                        sh 'kubectl apply -f deployservice.yml'
+                    }
+                }
             }
         }
     }
