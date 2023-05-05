@@ -32,10 +32,9 @@ pipeline{
         stage('Deploy to k8s'){
             steps{
                 script{
-                    withKubeConfig([credentialsId: 'k8s-config']) {
-//                        // sh 'minikube start'
-                        sh 'kubectl apply -f deployservice.yml'
-                        sh 'kubectl set image deployment/final-capstone-deploy final-deploy-container=mjmansi27/my-docker:${BUILD_NUMBER}'
+                     withCredentials([file(credentialsId: 'k8s-cf-new', variable: 'k8spwd')]) {         
+                        sh 'kubectl --kubeconfig=$k8spwd apply -f deployservice.yml'
+                        sh 'kubectl --kubeconfig=$k8spwd set image deployment/final-capstone-deploy final-deploy-container=mjmansi27/my-docker:${BUILD_NUMBER}'
                     }
                 }
             }
