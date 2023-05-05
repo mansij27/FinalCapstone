@@ -32,9 +32,9 @@ pipeline{
         stage('Deploy to k8s'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'k8s-config', variable: 'k8s-config_pwd')]) {
-                        sh 'minikube start'
-                        sh 'kubectl apply -f deployservice.yml'
+                    withCredentials([string(credentialsId: 'k8s-config', variable: 'k8s-config-pwd')]) {
+//                         sh 'minikube start'
+                        sh 'kubectl --kubeconfig=$k8s-config-pwd apply -f deployservice.yml'
                     }
                 }
             }
