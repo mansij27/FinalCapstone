@@ -11,7 +11,7 @@ pipeline{
         }
         stage ("Testing "){
             steps {
-                echo "Testing finished"
+                echo "Testing finished......."
             }
         }
         stage ("Production"){
