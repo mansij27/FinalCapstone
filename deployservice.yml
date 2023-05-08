@@ -27,7 +27,6 @@ spec:
     app: final-capstone-deploy
   ports:
   - port: 8000
-    protocol: "TCP"
     targetPort: 8000
     nodePort: 31000
   type: NodePort
