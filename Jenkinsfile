@@ -34,6 +34,13 @@ pipeline{
                 }
             }
         }
+        stage('Generate Artifact'){
+            steps{
+                script{
+                    sh 'tar -cf app.tar ./ '
+                }
+            }
+        }
     }
     post{
         always{
