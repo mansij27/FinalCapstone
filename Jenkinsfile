@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    // environment{
-       // DOCKERHUB_CREDENTIALS= credentials('mjmansi27-dockerhub')
-    // }
     stages{
         stage('Docker build'){
             steps{
@@ -36,6 +33,13 @@ pipeline{
                     }
                 }
             }
+        }
+        stage('Generate Artifact'){
+            steps{
+                script{
+                    sh 'tar -cf app.tar ./'
+                    }
+                }
         }
     }
     post{
