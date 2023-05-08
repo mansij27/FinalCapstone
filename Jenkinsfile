@@ -4,7 +4,7 @@ pipeline{
     //     image 'myregistry.com/node'
     // }
     stages{
-        stage ("Development"){
+        stage ("Developmennt"){
             steps {
                 echo "Development finished"
             }
