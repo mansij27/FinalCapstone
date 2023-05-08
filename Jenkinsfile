@@ -1,11 +1,8 @@
 pipeline{
     agent any
-    // docker {
-    //     image 'myregistry.com/node'
+    // environment{
+       // DOCKERHUB_CREDENTIALS= credentials('mjmansi27-dockerhub')
     // }
-    environment{
-        DOCKERHUB_CREDENTIALS= credentials('mjmansi27-dockerhub')
-    }
     stages{
         stage('Docker build'){
             steps{
