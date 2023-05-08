@@ -2,8 +2,6 @@ FROM python:3.8 as build
 
 WORKDIR /app
 
-ADD . /app
-
 COPY ./requirements.txt /app/requirements.txt
 
 COPY . .
