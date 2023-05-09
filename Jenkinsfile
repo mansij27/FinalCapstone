@@ -36,7 +36,7 @@ pipeline{
         stage('Generate Artifact'){
             steps{
                 script{
-                    sh 'tar -cf app.tar ./ '
+                    sh 'tar -cf myapp.tar ./ '
                 }
             }
         }
