@@ -1,19 +1,11 @@
-FROM python:3.8 as build
-
-ENV PYTHONUNBUFFERED=1
+FROM python:3.8
 
 WORKDIR /app
 
-ADD . /app
-
-COPY ./requirements.txt /app/requirements.txt
-
 COPY . .
-
-# FROM build as stage
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["python3", "manage.py", "runserver"]
+CMD ["python3", "manage.py", "runserver","0.0.0.0:8000"]
