@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: final-deploy-container
-          image: mjmansi27/my-docker:21
+          image: mjmansi27/my-docker:23
           ports:
             - containerPort: 8000
 ---
@@ -27,7 +27,6 @@ spec:
     app: final-capstone-deploy
   ports:
   - port: 8000
-    protocol: "TCP"
     targetPort: 8000
     nodePort: 31000
   type: NodePort
