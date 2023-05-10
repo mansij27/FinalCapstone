@@ -26,7 +26,7 @@ pipeline{
             steps{
                 script{
                      withCredentials([file(credentialsId: 'k8s-cf-new', variable: 'k8spwd')]) {         
-                        sh 'kubectl --kubeconfig=$k8spwd apply -f deployservice.yml'
+                        sh 'kubectl apply --kubeconfig=$k8spwd -f deployservice.yml'
                         sh 'kubectl --kubeconfig=$k8spwd set image deployment/final-capstone-deploy final-deploy-container=mjmansi27/my-docker:${BUILD_NUMBER}'
                         echo 'Deploy completed...'
                     }
