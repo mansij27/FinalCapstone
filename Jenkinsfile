@@ -25,8 +25,8 @@ pipeline{
         stage('Deploy to k8s'){
             steps{
                 script{
-                   withCredentials([file(credentialsId: 'k8s-cf-new', variable: 'var1')]) {     
-                           sh ' kubectl --kubeconfig=$var1 get pods '
+                 kubeconfig(credentialsId: 'dd0be6cc-e44a-4f8e-a93a-c2b09f4fb10d', serverUrl: '') {
+                           sh ' kubectl get pods '
 //                         sh 'kubectl --kubeconfig=$var1 apply -f deployservice.yml'
 //                         sh 'kubectl --kubeconfig=$var1 set image deployment/final-capstone-deploy final-deploy-container=mjmansi27/my-docker:${BUILD_NUMBER}'
                         echo 'Deploy completed...'
