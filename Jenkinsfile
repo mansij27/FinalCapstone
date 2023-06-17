@@ -33,7 +33,7 @@ pipeline{
                 }
             }
         }
-        stage('Generate Artifacts'){
+        stage('Generate Artifacts..'){
             steps{
                 script{
                     sh 'tar -cf myapp.tar ./ '
